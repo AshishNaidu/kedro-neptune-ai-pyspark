@@ -1,0 +1,73 @@
+# conf/base/catalog.yml
+  
+raw_credit_card_txns:
+  filepath: data/01_raw/transactions/
+  type: spark.SparkDataset
+  file_format: csv
+  load_args:
+    header: True
+    inferSchema: True
+  save_args:
+    sep: ','
+    header: True
+    mode: overwrite
+
+int_credit_card_txns_missing_data_handled:
+  filepath: data/02_intermediate/transactions/missing_data_handled/
+  type: spark.SparkDataset
+  file_format: csv
+  load_args:
+    header: True
+    inferSchema: True
+  save_args:
+    sep: ','
+    header: True
+    mode: overwrite
+    
+int_credit_card_txns_one_hot_encoded:
+  filepath: data/02_intermediate/transactions/one_hot_encoded/
+  type: spark.SparkDataset
+  file_format: parquet
+  load_args:
+    header: True
+    inferSchema: True
+  save_args:
+    sep: ','
+    header: True
+    mode: overwrite
+
+int_credit_card_txns_binned:
+  filepath: data/02_intermediate/transactions/binned/
+  type: spark.SparkDataset
+  file_format: parquet
+  load_args:
+    header: True
+    inferSchema: True
+  save_args:
+    sep: ','
+    header: True
+    mode: overwrite
+    
+int_credit_card_txns_feature_scaled:
+  filepath: data/02_intermediate/transactions/feature_scaled/
+  type: spark.SparkDataset
+  file_format: parquet
+  load_args:
+    header: True
+    inferSchema: True
+  save_args:
+    sep: ','
+    header: True
+    mode: overwrite
+    
+feature_credit_card_txns:
+  filepath: data/04_feature/transactions/
+  type: spark.SparkDataset
+  file_format: parquet
+  load_args:
+    header: True
+    inferSchema: True
+  save_args:
+    sep: ','
+    header: True
+    mode: overwrite
